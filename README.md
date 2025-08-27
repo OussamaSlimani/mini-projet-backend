@@ -87,3 +87,11 @@ APIs REST - Endpoints :
 #### Table des rôles
 
 ![Base de données rôles](images/roledb.png)
+
+#### Table des adresses utilisateurs
+
+![Base de données adresses utilisateurs](images/user_adressdb.png)
+
+#### Table des informations utilisateurs
+
+![Base de données informations utilisateurs](images/user_infodb.png)
