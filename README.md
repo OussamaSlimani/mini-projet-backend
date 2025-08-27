@@ -1,53 +1,89 @@
-Structure du Projet :
+# Agent Management Application - Documentation
+
+## Dépendances utilisées
+
+- **Spring Web** : Framework web pour les APIs REST
+- **Spring Data JPA** : Couche d'accès aux données
+- **PostgreSQL Driver** : Driver pour la base de données PostgreSQL
+- **Lombok** : Réduction du code boilerplate
+- **Validation** : Validation des données d'entrée
+- **Spring Boot DevTools** : Outils de développement
+
+## Structure du Projet
+
+```text
 src/main/java/com/example/agents/
 ├── controller/
-│ └── AgentController.java
+│   └── AgentController.java
 ├── model/
-│ ├── Agent.java
-│ ├── Role.java
-│ ├── UserInfo.java
-│ └── UserAddress.java
+│   ├── Agent.java
+│   ├── Role.java
+│   ├── UserInfo.java
+│   └── UserAddress.java
 ├── repository/
-│ └── AgentRepository.java
+│   └── AgentRepository.java
 ├── service/
-│ └── AgentService.java
+│   └── AgentService.java
 ├── util/
-│ └── UserIdGenerator.java
+│   └── UserIdGenerator.java
 └── AgentManagementApplication.java
+```
 
-Les dépendances qui sont utilisé :
-Spring Web
-Spring Data JPA
-PostgreSQL Driver
-Lombok
-Validation
-Spring Boot DevTools
+## Diagramme de classes
 
-Diagramme de class
-![diagrame de class](images/classe.png)
+![Diagramme de classes](images/classe.png)
 
-Capture Postman
-collection of tested api
-![imagee](images/collections.png)
+- Un Agent peut avoir plusieurs rôles.
+- Chaque Agent possède une seule fiche d’informations (UserInfo).
+- Chaque Agent possède une seule adresse (UserAddress).
 
-Ajoute un nouvel agent
-![imagee](images/add.png)
-Récupérer tous les agents
+### Tests avec Postman
 
-![imagee](images/getAll.png)
+#### Collection des APIs testées
 
-Récupérer un agent par ID
-![imagee](images/getAgent.png)
-met a jour un agent
-![imagee](images/update.png)
-suprimer un agent
-![imagee](images/delete.png)
-Récupère les agents actifs
-![imagee](images/getActive.png)
+![Collection Postman](images/collections.png)
 
-Capture Postgres
-base de donne de agent
-![imagee](images/agentdb.png)
+APIs REST - Endpoints :
 
-exemple role
-![imagee](images/roledb.png)
+| Méthode  | Endpoint                 | Description                            |
+| -------- | ------------------------ | -------------------------------------- |
+| `GET`    | `/api/v1/agents`         | Récupère la liste de tous les agents   |
+| `POST`   | `/api/v1/agent`          | Ajoute un nouvel agent                 |
+| `GET`    | `/api/v1/agent/{userId}` | Récupère un agent par son ID           |
+| `PUT`    | `/api/v1/agent/{userId}` | Met à jour les informations d'un agent |
+| `DELETE` | `/api/v1/agent/{userId}` | Supprime un agent                      |
+| `GET`    | `/api/v1/agents/active`  | Récupère les agents actifs             |
+
+#### Ajouter un nouvel agent
+
+![Ajout agent](images/add.png)
+
+#### Récupérer tous les agents
+
+![Liste agents](images/getAll.png)
+
+#### Récupérer un agent par ID
+
+![Agent par ID](images/getAgent.png)
+
+#### Mettre à jour un agent
+
+![Mise à jour agent](images/update.png)
+
+#### Supprimer un agent
+
+![Suppression agent](images/delete.png)
+
+#### Récupérer les agents actifs
+
+![Agents actifs](images/getActive.png)
+
+### Base de données PostgreSQL
+
+#### Table des agents
+
+![Base de données agents](images/agentdb.png)
+
+#### Table des rôles
+
+![Base de données rôles](images/roledb.png)
