@@ -2,12 +2,12 @@
 
 ## Dépendances utilisées
 
-- **Spring Web** : Framework web pour les APIs REST
-- **Spring Data JPA** : Couche d'accès aux données
-- **PostgreSQL Driver** : Driver pour la base de données PostgreSQL
-- **Lombok** : Réduction du code boilerplate
-- **Validation** : Validation des données d'entrée
-- **Spring Boot DevTools** : Outils de développement
+- Spring Web
+- Spring Data JPA
+- PostgreSQL Driver
+- Lombok
+- Validation
+- Spring Boot DevTools
 
 ## Structure du Projet
 
