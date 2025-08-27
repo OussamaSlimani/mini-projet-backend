@@ -129,18 +129,15 @@ public class AgentService {
         existingAgent.setActive(agentDetails.getActive());
         existingAgent.setLastLogin(LocalDateTime.now());
         
-        // Mise à jour des rôles - DELETE ALL PREVIOUS ROLES FIRST
+        // Mise à jour des rôles 
         if (agentDetails.getRoles() != null) {
             log.info("Mise à jour des rôles pour l'agent: {}", userId);
             
-            // DELETE ALL PREVIOUS ROLES by clearing the collection
-            // This works because of orphanRemoval = true in the Agent entity
             if (existingAgent.getRoles() != null && !existingAgent.getRoles().isEmpty()) {
                 log.info("Suppression de {} anciens rôles", existingAgent.getRoles().size());
-                existingAgent.getRoles().clear(); // This will trigger deletion due to orphanRemoval
+                existingAgent.getRoles().clear(); 
             }
             
-            // Ajouter les nouveaux rôles
             List<Role> newRoles = agentDetails.getRoles().stream()
                     .map(roleDetail -> {
                         Role newRole = new Role();
